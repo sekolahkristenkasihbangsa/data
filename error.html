@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Sekolah Kristen Kasih Bangsa</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #10b981;
+            --text-color: #1f2937;
+            --background-color: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .error-container {
+            background-color: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            padding: 4rem;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+            transform-style: preserve-3d;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            animation: float 10s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes" id="shapes-container"></div>
+    
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Halaman Tidak Ditemukan</h1>
+        <p class="mb-6 text-gray-600">Maaf, halaman yang Anda cari mungkin telah dipindahkan atau tidak tersedia.</p>
+        
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary">Kembali ke Beranda</a>
+            <a href="/kontak" class="btn btn-secondary">Hubungi Kami</a>
+        </div>
+    </div>
+
+    <script>
+        // Animasi Floating Background Shapes
+        function createShapes() {
+            const container = document.getElementById('shapes-container');
+            const colors = ['#3b82f6', '#10b981', '#6366f1', '#f43f5e'];
+            
+            for (let i = 0; i < 10; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                
+                const size = Math.random() * 200 + 50;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.background = colors[Math.floor(Math.random() * colors.length)];
+                shape.style.opacity = Math.random() * 0.2;
+                
+                shape.style.top = `${Math.random() * 100}%`;
+                shape.style.left = `${Math.random() * 100}%`;
+                
+                container.appendChild(shape);
+            }
+        }
+
+        // GSAP 3D Hover Effect
+        function init3DEffect() {
+            const container = document.querySelector('.error-container');
+            
+            container.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const { left, top, width, height } = container.getBoundingClientRect();
+                
+                const centerX = left + width / 2;
+                const centerY = top + height / 2;
+                
+                const rotateX = (clientY - centerY) / 20;
+                const rotateY = -(clientX - centerX) / 20;
+                
+                gsap.to(container, {
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    ease: 'power1.out',
+                    duration: 0.6
+                });
+            });
+
+            container.addEventListener('mouseleave', () => {
+                gsap.to(container, {
+                    rotationX: 0,
+                    rotationY: 0,
+                    ease: 'power1.out',
+                    duration: 0.6
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createShapes();
+            init3DEffect();
+        });
+    </script>
+</body>
+</html>
