@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Maju Terpadu</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-dots span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            animation: bounce 0.5s ease infinite alternate;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+
+        /* Kelas Box Animasi */
+        .kelas-box {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .kelas-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Hover Effect untuk Kelas */
+        .kelas-item {
+            transition: all 0.3s ease;
+        }
+
+        .kelas-item:hover {
+            background-color: #f0f4f8;
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="bg-blue-500 text-white">
+        <div class="loading-dots text-center">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p class="mt-4 text-xl">Memuat Sekolah Maju Terpadu...</p>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-blue-600 mb-4">Sekolah Maju Terpadu</h1>
+            <p class="text-xl text-gray-600">Mendidik Generasi Unggul, Berkarakter, dan Berprestasi</p>
+        </header>
+
+        <section class="bg-white shadow-lg rounded-lg p-8 mb-12">
+            <h2 class="text-3xl font-semibold text-center mb-8 text-blue-700">Struktur Kelas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- SD Kelas -->
+                <div class="kelas-box bg-blue-100 rounded-lg p-6 shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-4">Sekolah Dasar</h3>
+                    <div class="space-y-2">
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 1 SD</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 2 SD</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 3 SD</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 4 SD</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 5 SD</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 6 SD</div>
+                    </div>
+                </div>
+
+                <!-- SMP Kelas -->
+                <div class="kelas-box bg-green-100 rounded-lg p-6 shadow-md">
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">Sekolah Menengah Pertama</h3>
+                    <div class="space-y-2">
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 7 SMP</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 8 SMP</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 9 SMP</div>
+                    </div>
+                </div>
+
+                <!-- SMA Kelas -->
+                <div class="kelas-box bg-purple-100 rounded-lg p-6 shadow-md">
+                    <h3 class="text-2xl font-bold text-purple-800 mb-4">Sekolah Menengah Atas</h3>
+                    <div class="space-y-2">
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 10 SMA</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 11 SMA</div>
+                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 12 SMA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-blue-600 text-white text-center py-4">
+        <p>&copy; 2024 Sekolah Maju Terpadu. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Loading Screen Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            
+            // Simulasikan loading
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
