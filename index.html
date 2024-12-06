@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sekolah Maju Terpadu</title>
+    <title>Sekolah Kristen Kasih Bangsa</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Loading Screen */
@@ -63,6 +63,15 @@
             background-color: #f0f4f8;
             transform: translateX(10px);
         }
+
+        /* Banner Parallax Effect */
+        .banner {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/800');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -72,17 +81,42 @@
             <span></span>
             <span></span>
             <span></span>
-            <p class="mt-4 text-xl">Memuat Sekolah Maju Terpadu...</p>
+            <p class="mt-4 text-xl">Memuat Website...</p>
+        </div>
+    </div>
+
+    <!-- Header dengan Logo -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <img 
+                    src="logo.png" 
+                    alt="Logo Skkb Serui" 
+                    class="w-16 h-16 mr-4 rounded-full"
+                >
+                <h1 class="text-2xl font-bold text-blue-700">Sekolah Kristen Kasih Bangsa</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Beranda</a></li>
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Profil</a></li>
+                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner text-white text-center py-24 mb-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-4">Sekolah Maju Terpadu</h2>
+            <p class="text-xl mb-6">Iman, Karakter, Dan Pengetahuan</p>
+            <a href="#struktur-kelas" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-100 transition">Jelajahi Struktur Kelas</a>
         </div>
     </div>
 
     <div class="container mx-auto px-4 py-8">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-blue-600 mb-4">Sekolah Maju Terpadu</h1>
-            <p class="text-xl text-gray-600">Mendidik Generasi Unggul, Berkarakter, dan Berprestasi</p>
-        </header>
-
-        <section class="bg-white shadow-lg rounded-lg p-8 mb-12">
+        <section id="struktur-kelas" class="bg-white shadow-lg rounded-lg p-8 mb-12">
             <h2 class="text-3xl font-semibold text-center mb-8 text-blue-700">Struktur Kelas</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
