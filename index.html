@@ -2,177 +2,173 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sekolah Kristen Kasih Bangsa</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Loading Screen */
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #3498db;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
         }
-
-        .loading-dots span {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border-radius: 50%;
-            margin: 0 10px;
-            animation: bounce 0.5s ease infinite alternate;
+        .custom-navbar {
+            background-color: #1e293b;
+            border-bottom: 3px solid #fbbf24;
         }
-
-        .loading-dots span:nth-child(2) {
-            animation-delay: 0.1s;
+        .hero-section {
+            background: linear-gradient(135deg, #1e40af, #0f172a);
         }
-
-        .loading-dots span:nth-child(3) {
-            animation-delay: 0.2s;
+        .text-border {
+            text-shadow: 
+                -1px -1px 0 #fbbf24,  
+                 1px -1px 0 #fbbf24,
+                -1px  1px 0 #fbbf24,
+                 1px  1px 0 #fbbf24;
         }
-
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-20px); }
-        }
-
-        /* Kelas Box Animasi */
-        .kelas-box {
+        .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .kelas-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(251,191,36,0.2);
         }
-
-        /* Hover Effect untuk Kelas */
-        .kelas-item {
-            transition: all 0.3s ease;
-        }
-
-        .kelas-item:hover {
-            background-color: #f0f4f8;
-            transform: translateX(10px);
-        }
-
-        /* Banner Parallax Effect */
-        .banner {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1920/800');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .card-bg {
+            background-color: #1e293b;
+            color: #f8fafc;
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="bg-blue-500 text-white">
-        <div class="loading-dots text-center">
-            <span></span>
-            <span></span>
-            <span></span>
-            <p class="mt-4 text-xl">Memuat Website...</p>
-        </div>
-    </div>
-
-    <!-- Header dengan Logo -->
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<body class="text-white">
+    <nav class="fixed w-full z-50 custom-navbar shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img 
-                    src="logo.png" 
-                    alt="Logo Skkb Serui" 
-                    class="w-16 h-16 mr-4 rounded-full"
-                >
-                <h1 class="text-2xl font-bold text-blue-700">Sekolah Kristen Kasih Bangsa</h1>
+                <img src="/api/placeholder/50/50" alt="Logo" class="h-12 w-12 mr-4 rounded-full">
+                <span class="text-2xl font-bold text-yellow-400 text-border">SKKB</span>
             </div>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Beranda</a></li>
-                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Profil</a></li>
-                    <li><a href="#" class="text-blue-600 hover:text-blue-800">Kontak</a></li>
-                </ul>
-            </nav>
+            <div class="space-x-6">
+                <a href="#beranda" class="text-yellow-300 hover:text-yellow-500 font-semibold">Beranda</a>
+                <a href="#tentang" class="text-yellow-300 hover:text-yellow-500 font-semibold">Tentang</a>
+                <a href="#struktur" class="text-yellow-300 hover:text-yellow-500 font-semibold">Struktur</a>
+                <a href="#kontak" class="text-yellow-300 hover:text-yellow-500 font-semibold">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-white pt-28 pb-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4 text-border">Sekolah Kristen Kasih Bangsa</h1>
+            <p class="text-xl mb-8 text-yellow-200">Mendidik Generasi Unggul dengan Fondasi Iman dan Pengetahuan</p>
+            <a href="#pendaftaran" class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">Daftar Sekarang</a>
         </div>
     </header>
 
-    <!-- Banner -->
-    <div class="banner text-white text-center py-24 mb-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-4">Sekolah Maju Terpadu</h2>
-            <p class="text-xl mb-6">Iman, Karakter, Dan Pengetahuan</p>
-            <a href="#struktur-kelas" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-100 transition">Jelajahi Struktur Kelas</a>
-        </div>
-    </div>
-
-    <div class="container mx-auto px-4 py-8">
-        <section id="struktur-kelas" class="bg-white shadow-lg rounded-lg p-8 mb-12">
-            <h2 class="text-3xl font-semibold text-center mb-8 text-blue-700">Struktur Kelas</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- SD Kelas -->
-                <div class="kelas-box bg-blue-100 rounded-lg p-6 shadow-md">
-                    <h3 class="text-2xl font-bold text-blue-800 mb-4">Sekolah Dasar</h3>
-                    <div class="space-y-2">
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 1 SD</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 2 SD</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 3 SD</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 4 SD</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 5 SD</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 6 SD</div>
-                    </div>
-                </div>
-
-                <!-- SMP Kelas -->
-                <div class="kelas-box bg-green-100 rounded-lg p-6 shadow-md">
-                    <h3 class="text-2xl font-bold text-green-800 mb-4">Sekolah Menengah Pertama</h3>
-                    <div class="space-y-2">
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 7 SMP</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 8 SMP</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 9 SMP</div>
-                    </div>
-                </div>
-
-                <!-- SMA Kelas -->
-                <div class="kelas-box bg-purple-100 rounded-lg p-6 shadow-md">
-                    <h3 class="text-2xl font-bold text-purple-800 mb-4">Sekolah Menengah Atas</h3>
-                    <div class="space-y-2">
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 10 SMA</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 11 SMA</div>
-                        <div class="kelas-item bg-white p-3 rounded-md">Kelas 12 SMA</div>
-                    </div>
-                </div>
+    <section id="tentang" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-10 text-yellow-400 text-border">Tentang Sekolah Kami</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card-bg p-6 rounded-lg shadow card-hover">
+                <i class="fas fa-graduation-cap text-4xl text-yellow-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-yellow-300">Visi Misi</h3>
+                <p>Menjadi lembaga pendidikan yang menghasilkan generasi berkualitas, berintegritas, dan berkarakter Kristiani.</p>
             </div>
-        </section>
-    </div>
+            <div class="card-bg p-6 rounded-lg shadow card-hover">
+                <i class="fas fa-church text-4xl text-yellow-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-yellow-300">Nilai-Nilai</h3>
+                <p>Kasih, Integritas, Kreativitas, Kepedulian, dan Semangat Pelayanan sesuai ajaran Kristus.</p>
+            </div>
+            <div class="card-bg p-6 rounded-lg shadow card-hover">
+                <i class="fas fa-globe text-4xl text-yellow-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-yellow-300">Pengembangan</h3>
+                <p>Mengembangkan potensi siswa melalui pendidikan holistik yang memperhatikan aspek akademik dan rohani.</p>
+            </div>
+        </div>
+    </section>
 
-    <footer class="bg-blue-600 text-white text-center py-4">
-        <p>&copy; 2024 Sekolah Maju Terpadu. Hak Cipta Dilindungi.</p>
+    <section id="struktur" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-10 text-yellow-400 text-border">Struktur Kepemimpinan</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center card-bg p-6 rounded-lg card-hover">
+                <img src="/api/placeholder/250/250" alt="Kepsek SD" class="mx-auto mb-4 rounded-full border-4 border-yellow-400">
+                <h3 class="text-xl font-semibold text-yellow-300">Drs. Maria Hartati</h3>
+                <p class="text-yellow-200">Kepala Sekolah SD</p>
+            </div>
+            <div class="text-center card-bg p-6 rounded-lg card-hover">
+                <img src="/api/placeholder/250/250" alt="Kepsek SMP" class="mx-auto mb-4 rounded-full border-4 border-yellow-400">
+                <h3 class="text-xl font-semibold text-yellow-300">Pdt. Thomas Wijaya, S.Pd</h3>
+                <p class="text-yellow-200">Kepala Sekolah SMP</p>
+            </div>
+            <div class="text-center card-bg p-6 rounded-lg card-hover">
+                <img src="/api/placeholder/250/250" alt="Kepsek SMA" class="mx-auto mb-4 rounded-full border-4 border-yellow-400">
+                <h3 class="text-xl font-semibold text-yellow-300">Dr. Rebecca Susanto, M.Pd</h3>
+                <p class="text-yellow-200">Kepala Sekolah SMA</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="struktur-kelas" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-10 text-yellow-400 text-border">Struktur Kelas</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card-bg p-6 rounded-lg">
+                <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Sekolah Dasar</h3>
+                <ul class="space-y-2">
+                    <li>Kelas 1: 3 Rombel</li>
+                    <li>Kelas 2: 3 Rombel</li>
+                    <li>Kelas 3: 3 Rombel</li>
+                    <li>Kelas 4: 3 Rombel</li>
+                    <li>Kelas 5: 3 Rombel</li>
+                    <li>Kelas 6: 3 Rombel</li>
+                </ul>
+            </div>
+            <div class="card-bg p-6 rounded-lg">
+                <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Sekolah Menengah Pertama</h3>
+                <ul class="space-y-2">
+                    <li>Kelas 7: 4 Rombel</li>
+                    <li>Kelas 8: 4 Rombel</li>
+                    <li>Kelas 9: 4 Rombel</li>
+                    <li>Program Unggulan:
+                        <ul class="pl-4 list-disc text-yellow-200">
+                            <li>Matematika</li>
+                            <li>Sains</li>
+                            <li>Bahasa Inggris</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-bg p-6 rounded-lg">
+                <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Sekolah Menengah Atas</h3>
+                <ul class="space-y-2">
+                    <li>Kelas 10: 4 Rombel
+                        <ul class="pl-4 list-disc text-yellow-200">
+                            <li>MIPA</li>
+                            <li>IPS</li>
+                        </ul>
+                    </li>
+                    <li>Kelas 11: 4 Rombel
+                        <ul class="pl-4 list-disc text-yellow-200">
+                            <li>MIPA</li>
+                            <li>IPS</li>
+                        </ul>
+                    </li>
+                    <li>Kelas 12: 4 Rombel
+                        <ul class="pl-4 list-disc text-yellow-200">
+                            <li>MIPA</li>
+                            <li>IPS</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-950 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-yellow-400">Sekolah Kristen Kasih Bangsa</h3>
+            <p class="mb-6 text-yellow-200">Jl. Kasih Bangsa No. 123, Kota Sejahtera</p>
+            <div class="space-x-4">
+                <a href="#" class="text-yellow-400 text-2xl hover:text-yellow-600"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-yellow-400 text-2xl hover:text-yellow-600"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-yellow-400 text-2xl hover:text-yellow-600"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
     </footer>
-
-    <script>
-        // Loading Screen Script
-        document.addEventListener('DOMContentLoaded', () => {
-            const loadingScreen = document.getElementById('loading-screen');
-            
-            // Simulasikan loading
-            setTimeout(() => {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 2000);
-        });
-    </script>
 </body>
 </html>
